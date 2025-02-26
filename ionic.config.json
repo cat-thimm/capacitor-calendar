@@ -1,0 +1,7 @@
+{
+  "name": "event-calendar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
