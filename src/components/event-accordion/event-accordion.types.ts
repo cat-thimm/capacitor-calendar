@@ -1,12 +1,12 @@
-import { Calendar, CalendarEvent } from '@ebarooni/capacitor-calendar'
+import { CustomEvent } from '@/types/CustomEvent'
 
 export interface EventAccordionContainerProps {
-  event: CalendarEvent
+  event: CustomEvent
   onDelete: (eventId: string) => Promise<void>
 }
 
 export interface EventAccordionProps {
-  event: CalendarEvent
+  event: CustomEvent
   startDate: { weekday: string; day: string; time: string }
   endDate: { weekday: string; day: string; time: string }
   onDelete: (eventId: string) => Promise<void>

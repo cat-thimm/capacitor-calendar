@@ -64,8 +64,9 @@ export const EventAccordion = ({
         >
           <div className="flex flex-col ">
             <span className="text-sm text-gray-300">Description</span>
-            {startDate.time} - {endDate.time}
-            <br />
+            <span className="font-semibold p-0">
+              {startDate.time} - {endDate.time}
+            </span>
             {event?.description}
           </div>
           <div className="w-full flex justify-between">

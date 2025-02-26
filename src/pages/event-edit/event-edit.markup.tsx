@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   IonAlert,
   IonButtons,
@@ -12,6 +11,7 @@ import {
   IonToolbar
 } from '@ionic/react'
 import { arrowBack } from 'ionicons/icons'
+
 import { EventEditProps } from '@/pages/event-edit/event-edit.types'
 import { EventFormContainer } from '@/components/event-form'
 
@@ -64,8 +64,7 @@ export const EventEdit = ({
               : new Date().toISOString(),
             endDate: currentEvent
               ? new Date(currentEvent.endDate).toISOString()
-              : new Date().toISOString(),
-            isRecurring: false
+              : new Date().toISOString()
           }}
           onSubmitForm={calendarProps =>
             onSubmitForm(calendarProps).then(() => setShowSuccessModal(true))

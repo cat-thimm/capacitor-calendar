@@ -22,7 +22,6 @@ export const CreateEventContainer: FC = () => {
     title: string
     startDate: string
     endDate: string
-    isRecurring?: boolean
     description?: string
   }) => {
     await addEventToCalendar({

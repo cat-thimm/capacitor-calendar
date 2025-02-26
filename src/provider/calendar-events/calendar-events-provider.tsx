@@ -5,7 +5,6 @@ import { getCalendarEvents, storeCalendarEvents } from '@/helpers/storage'
 import { CustomEvent } from '@/types/CustomEvent'
 
 import { CalendarEventsContext } from './calendar-events-provider.context'
-import uuid from 'react-uuid'
 
 export const CalendarEventsProvider = ({
   children

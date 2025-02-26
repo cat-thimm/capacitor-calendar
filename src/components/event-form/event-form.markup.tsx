@@ -1,17 +1,10 @@
 import React from 'react'
+import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { IonDatetime, IonDatetimeButton, IonModal } from '@ionic/react'
+
+import { addEventSchema } from '@/pages/event-edit/event-edit.helper'
 
 import { EventFormProps } from './event-form.types'
-import { addEventSchema } from '@/pages/event-edit/event-edit.helper'
-import { ErrorMessage, Field, Form, Formik } from 'formik'
-import {
-  IonDatetime,
-  IonDatetimeButton,
-  IonItem,
-  IonList,
-  IonModal,
-  IonSelect,
-  IonSelectOption
-} from '@ionic/react'
 
 export const EventForm = ({ initialValues, onSubmitForm }: EventFormProps) => {
   return (
@@ -21,11 +14,9 @@ export const EventForm = ({ initialValues, onSubmitForm }: EventFormProps) => {
       onSubmit={(values, { setSubmitting }) => {
         onSubmitForm({
           title: values.title,
-
           startDate: values.startDate,
           endDate: values.endDate,
-          description: values.description,
-          isRecurring: values.isRecurring
+          description: values.description
         }).then(() => {
           setSubmitting(false)
         })
@@ -104,21 +95,6 @@ export const EventForm = ({ initialValues, onSubmitForm }: EventFormProps) => {
               <Field type="checkbox" name="isRecurring" className="checkbox" />
               Mark as recurring
             </label>
-
-            <IonList>
-              <IonItem>
-                <IonSelect
-                  disabled={!values.isRecurring}
-                  aria-label="recurring-event"
-                  placeholder="Select interval"
-                  value="none"
-                >
-                  <IonSelectOption value="none">None</IonSelectOption>
-                  <IonSelectOption value="weekly">Weekly</IonSelectOption>
-                  <IonSelectOption value="monthly">Monthly</IonSelectOption>
-                </IonSelect>
-              </IonItem>
-            </IonList>
 
             <button className="button-primary w-full" disabled={isSubmitting}>
               Save

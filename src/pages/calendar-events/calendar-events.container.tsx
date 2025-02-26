@@ -1,15 +1,16 @@
 import React, { FC } from 'react'
 
-import { CalendarEvents } from './calendar-events.markup'
 import { useCalendarEvents } from '@/hooks/use-calendar-events'
-import { CalendarEvent } from '@ebarooni/capacitor-calendar'
+import { CustomEvent } from '@/types/CustomEvent'
+
+import { CalendarEvents } from './calendar-events.markup'
 
 export const CalendarEventsContainer: FC = () => {
   const { calendarEvents, deleteEventFromCalendar } = useCalendarEvents()
 
   function groupEventsByYearAndMonth(
-    events: CalendarEvent[]
-  ): Record<number, Record<string, CalendarEvent[]>> {
+    events: CustomEvent[]
+  ): Record<number, Record<string, CustomEvent[]>> {
     const monthNames = [
       'January',
       'February',
@@ -42,7 +43,7 @@ export const CalendarEventsContainer: FC = () => {
         acc[year][month].push(event)
         return acc
       },
-      {} as Record<number, Record<string, CalendarEvent[]>>
+      {} as Record<number, Record<string, CustomEvent[]>>
     )
   }
 
