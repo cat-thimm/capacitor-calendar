@@ -7,17 +7,22 @@ export const parseTimestamp = (
 
   const date = new Date(timestamp)
 
-  // Get shortened weekday name (e.g., "Mon")
-  const weekday = date.toLocaleDateString('en-US', { weekday: 'short' })
+  const weekday = date.toLocaleDateString('en-US', {
+    weekday: 'short',
+    timeZone: 'UTC' // Ensuring consistent timezone handling
+  })
 
-  // Get the day of the month with a dot (e.g., "01.")
-  const day = date.getDate().toString().padStart(2, '0') + '.'
+  const day =
+    date
+      .getUTCDate() // Get day from UTC time
+      .toString()
+      .padStart(2, '0') + '.' // Ensures "25." format
 
-  // Get the time in HH:mm format (e.g., "14:30")
   const time = date.toLocaleTimeString('en-US', {
-    hour: '2-digit',
+    hour: 'numeric',
     minute: '2-digit',
-    hour12: false
+    hour12: true,
+    timeZone: 'UTC' // Force UTC for consistency
   })
 
   return { weekday, day, time }
