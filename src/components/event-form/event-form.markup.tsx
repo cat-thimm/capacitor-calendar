@@ -91,10 +91,6 @@ export const EventForm = ({ initialValues, onSubmitForm }: EventFormProps) => {
               component="textarea"
               rows="3"
             />
-            <label className="flex items-center gap-2.5 label">
-              <Field type="checkbox" name="isRecurring" className="checkbox" />
-              Mark as recurring
-            </label>
 
             <button className="button-primary w-full" disabled={isSubmitting}>
               Save
